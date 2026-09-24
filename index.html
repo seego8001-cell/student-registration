@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ប្រព័ន្ធចុះឈ្មោះសិស្ស</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, "Noto Sans Khmer", sans-serif;
+            background: #f2f6ff;
+            color: #222;
+        }
+
+        header {
+            background: #1769e0;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1769e0;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #1769e0;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d4fae;
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>ប្រព័ន្ធចុះឈ្មោះសិស្ស</h1>
+        <p>Digital Student Registration</p>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>ចុះឈ្មោះសិស្ស</h2>
+
+            <form id="studentForm">
+
+                <label>លេខ ID សិស្ស</label>
+                <input type="text" id="studentID"
+                       placeholder="បញ្ចូលលេខ ID" required>
+
+                <label>ឈ្មោះសិស្ស</label>
+                <input type="text" id="studentName"
+                       placeholder="បញ្ចូលឈ្មោះពេញ" required>
+
+                <label>ថ្ងៃខែឆ្នាំកំណើត</label>
+                <input type="date" id="dob" required>
+
+                <label>ភេទ</label>
+                <select id="gender" required>
+                    <option value="">-- ជ្រើសរើស --</option>
+                    <option value="ប្រុស">ប្រុស</option>
+                    <option value="ស្រី">ស្រី</option>
+                </select>
+
+                <label>ថ្នាក់</label>
+                <select id="grade" required>
+                    <option value="">-- ជ្រើសរើសថ្នាក់ --</option>
+                    <option value="ថ្នាក់ទី 7">ថ្នាក់ទី 7</option>
+                    <option value="ថ្នាក់ទី 8">ថ្នាក់ទី 8</option>
+                    <option value="ថ្នាក់ទី 9">ថ្នាក់ទី 9</option>
+                    <option value="ថ្នាក់ទី 10">ថ្នាក់ទី 10</option>
+                    <option value="ថ្នាក់ទី 11">ថ្នាក់ទី 11</option>
+                    <option value="ថ្នាក់ទី 12">ថ្នាក់ទី 12</option>
+                </select>
+
+                <button type="submit">
+                    ចុះឈ្មោះ
+                </button>
+
+                <div id="message"></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Digital Student Registration
+    </footer>
+
+    <script>
+        document.getElementById("studentForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const id = document.getElementById("studentID").value;
+            const name = document.getElementById("studentName").value;
+            const dob = document.getElementById("dob").value;
+            const gender = document.getElementById("gender").value;
+            const grade = document.getElementById("grade").value;
+
+            document.getElementById("message").innerHTML =
+                "✅ ចុះឈ្មោះបានជោគជ័យ!<br>" +
+                "ID: " + id + "<br>" +
+                "ឈ្មោះ: " + name + "<br>" +
+                "ថ្ងៃកំណើត: " + dob + "<br>" +
+                "ភេទ: " + gender + "<br>" +
+                "ថ្នាក់: " + grade;
+
+        });
+    </script>
+
+</body>
+</html>
